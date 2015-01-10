@@ -4,15 +4,15 @@ FORMAT: 1A
 Sample API to explore functionality of *Apiary* and *API Blueprints*.
 
 ## MetricID Structure
-`MetricID` -- fully qualfied metric name, with all its dimensions, has the following format:
+`MetricID` – fully qualfied metric name, with all its dimensions, has the following format:
 
-`Namespace`.`MetricName`.[Name1:Value1].[Name2:Value2].*...*.[NameN:ValueN]
+`Namespace`.`MetricName`.[Name1:Value1].[Name2:Value2]. *...* .[NameN:ValueN]
 
 where,
 
-* `Namespace` -- prefix used to partition metrics space. 
-* `MetricName` -- name of the sensor that emits value.
-* `[NameN:ValueN]` -- tag, used to de-dupe metric.
+* `Namespace` – prefix used to partition metrics space
+* `MetricName` – name of the sensor that emits value
+* `[NameN:ValueN]` – tag, used to de-dupe metric
 
 # Group Publishing & Retriveving Metrics
 These API calls operate directly on metrics.
