@@ -1,23 +1,35 @@
 FORMAT: 1A
 
 # Metrics API v1
-Example of API to explore functionality of *Apiary* and *API Blueprints*.
+Sample API to explore functionality of *Apiary* and *API Blueprints*.
 
-# Group Publishing Metrics
-API calls related to publishing metrics.
+## MetricID Structure
+`MetricID` -- fully qualfied metric name, with all its dimensions, has the following format:
+
+`Namespace`.`MetricName`.[Name1:Value1].[Name2:Value2].*...*.[NameN:ValueN]
+
+where,
+
+* `Namespace` -- prefix used to partition metrics space. 
+* `MetricName` -- name of the sensor that emits value.
+* `[NameN:ValueN]` -- tag, used to de-dupe metric.
+
+# Group Publishing & Retriveving Metrics
+These API calls operate directly on metrics.
+Full `MetricID` must be specified in every call.
 
 ## Publish [/metrics]
 
 ### Publish metrics [POST]
 + Request (application/json)
 
-        [
-                {
-                        "timestamp": 213,
-                        "value": 123,
-                        "id": "Namespace.MetricName$[d1:v1][d2:v2]"
-                }
-        ]
+    [
+        {
+            "timestamp": 213,
+            "value": 123,
+            "id": "Namespace.MetricName$[d1:v1][d2:v2]"
+        }
+    ]
 
 + Response 200 (application/json)
         
