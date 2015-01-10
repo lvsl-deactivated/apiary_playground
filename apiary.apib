@@ -58,7 +58,24 @@ Full `MetricID` must be specified in every call.
             
     + Schema
     
-            {}
+            {
+                "type": "object",
+                "required": false,
+                "properties": {
+                    "timestamp": {
+                        "type": ["number", "null"],
+                        "required": false
+                    },
+                    "id": {
+                        "type": "number",
+                        "required": true
+                    },
+                    "value": {
+                        "type": "number",
+                        "required": true
+                    }
+                }
+            }
 
 + Response 200 (application/json)
   
