@@ -17,15 +17,18 @@ This section describe common concepts used in all API calls.
 * `MetricName` – name of the sensor that emits value
 * `[NameN:ValueN]` – tag, used to de-dupe metric
 
-# Group Publishing & Retrieval of Metrics
-These API calls operate directly on metrics.
+# Group Storing & Retrieval of Datapoints
+
+These API calls work with datapoints.
 Full `MetricID` must be specified in every call.
 
-## /v1/metrics
+## /v1/datapoints
 
-### Publish Metrics [POST]
+### Publish Datapoints [POST]
 
 + Request (application/json)
++ Parameters
+    - foo (optional) ... bar
 
     [
         {
@@ -42,7 +45,7 @@ Full `MetricID` must be specified in every call.
         "metrics_created": false
     }
 
-### Get Metrics [POST]
+### Get Datapoints [POST]
 
 + Request (application/json)
 
