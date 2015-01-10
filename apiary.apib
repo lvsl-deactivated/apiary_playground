@@ -27,60 +27,49 @@ Full `MetricID` must be specified in every call.
 
 ### Publish Datapoints [POST]
 
-+ Parameters
-    - INPUT (optional) ... Input Parametrs
-    
-    * value (required, double) ... Value of datapoints.
-    * id (required, string) ... `MetricID` of datapoints.
-    * timestamp (optional, number) ... Unix Timestamp of datapoint.
-    
-        If not present, the current time on the server will be used.
-    
-    - OUTPUT (optional) ... Output Parameters
-    
-    * status ... Status of posted datapoints
-    
-        + Values
-            + `OK`
-            + `FAIL`
+#### Input JSON Description
+| Name | Description | Details |
+| ---- | ----------- | ------- |
+| value | Value of datapoint | required |
+| id | `MetricID` of a datapoint | required |
+| timestamp | UNIX Timestamp. If not present, current server's time used | optional |
+
+#### Output JSON Description
+| Name | Description | Details |
+| ---- | ----------- | ------- |
+| value | Value of datapoint | required |
+
+#### Errors Description
+| Name | Description | Details |
+| ---- | ----------- | ------- |
+| value | Value of datapoint | required |
+
++ Request (application/json)
+
+    + Body
+
+            [
+                {
+                    "timestamp": 213,
+                    "value": 123,
+                    "id": "Namespace.MetricName$[d1:v1][d2:v2]"
+                }
+            ]
             
-    * metrics_created (required, boolean) ... Wether new metric was created for published datapoint 
+    + Schema
     
-    - ERRORS (optional) ... Errors
-
-+ Request (application/json)
-
-    [
-        {
-            "timestamp": 213,
-            "value": 123,
-            "id": "Namespace.MetricName$[d1:v1][d2:v2]"
-        }
-    ]
+            {}
 
 + Response 200 (application/json)
+  
+    + Body
     
-    {
-        "status": "OK",
-        "metrics_created": false
-    }
-    
-+ Response 500 (application/json)
+            {
+                "status": "OK",
+                "metrics_created": false
+            }
 
-    {
-        "status": "FAIL"
-    }
+    + Schema
 
-### Get Datapoints [POST]
-
-+ Request (application/json)
-
-    [
-        "mid1"
-    ]
-    
-+ Response 200 (application/json)
-
-    {
-        "mid1": { ... }
-    }
+            {}
+            
