@@ -6,7 +6,7 @@ Sample API to explore functionality of *Apiary* and *API Blueprints*.
 ## MetricID Structure
 `MetricID` – fully qualfied metric name, with all its dimensions, has the following format:
 
-`Namespace`.`MetricName`.[Name1:Value1].[Name2:Value2]. *...* .[NameN:ValueN]
+`Namespace`.`MetricName`.`[Name1:Value1]`.`[Name2:Value2]`. *...* .`[NameN:ValueN]`
 
 where,
 
@@ -18,9 +18,23 @@ where,
 These API calls operate directly on metrics.
 Full `MetricID` must be specified in every call.
 
-## Publish [/metrics]
+## Publish Metrics [/metrics]
 
 ### Publish metrics [POST]
++ Parameters
+    - timestamp (optional, number) UNIX Timestamp of measurement
+    
+        If not specified current time on the server will be used.
+        **NOTE:** timestamp will be rounded to previous minute.
+    
+    - value (required, double) Value of measurement
+    
+        IEEE754 format, NaNs, not allowed.
+    
+    - id (required, string) MetricID to which publish the measurement.
+    
+        if MetricID does not exists on the system, it will be created.
+
 + Request (application/json)
 
     [
@@ -32,4 +46,5 @@ Full `MetricID` must be specified in every call.
     ]
 
 + Response 200 (application/json)
-        
+    
+    {"status": "OK", "metrics_created": false}
