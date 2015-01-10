@@ -22,13 +22,17 @@ This section describe common concepts used in all API calls.
 These API calls work with datapoints.
 Full `MetricID` must be specified in every call.
 
-## /v1/datapoints
+## Datapoints [/v1/datapoints]
 
 ### Publish Datapoints [POST]
 + Parameters
     - INPUT (optional) ... Input Parametrs
     
-    * timestamp (required, number) ... Unix Timestamp of datapoint
+    * value (required, double) ... Value of datapoints
+    * id (required, string) ... `MetricID` of datapoints
+    * timestamp (optional, number) ... Unix Timestamp of datapoint
+    
+        If not present, the current time on the server will be used.
     
     - OUTPUT (optional) ... Output Parameters
     
