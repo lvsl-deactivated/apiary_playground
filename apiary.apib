@@ -23,9 +23,19 @@ This section describe data models used in API in the next section.
 ## Datapoint [/v1/datapoint]
 Represents value of a metric in a specified moment of time.
 
-+ Model (text/plain)
++ Model (application/json)
 
-        Hello!
+    ```js
+    {
+        "ddd": 123
+    }
+    ```
+    
+### GET
+
++ Response 200
+
+    [Datapoint][]
 
 # Group Storing & Retrieval of Datapoints
 
