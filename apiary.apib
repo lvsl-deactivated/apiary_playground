@@ -18,11 +18,10 @@ where,
 These API calls operate directly on metrics.
 Full `MetricID` must be specified in every call.
 
-## Metrics [/metrics]
+## /metrics
 
+### Publish metrics [POST]
 + Parameters
-
-    Input Parameters.
 
     - timestamp (optional, number) UNIX Timestamp of measurement
     
@@ -36,8 +35,6 @@ Full `MetricID` must be specified in every call.
     - id (required, string) MetricID to which publish the measurement.
     
         if MetricID does not exists on the system, it will be created.
-
-### Publish metrics [POST]
 
 + Request (application/json)
 
