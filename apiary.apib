@@ -20,8 +20,6 @@ Full `MetricID` must be specified in every call.
 
 ## Metrics [/metrics]
 
-### Publish metrics [POST]
-
 + Parameters
     - timestamp (optional, number) UNIX Timestamp of measurement
     
@@ -35,6 +33,8 @@ Full `MetricID` must be specified in every call.
     - id (required, string) MetricID to which publish the measurement.
     
         if MetricID does not exists on the system, it will be created.
+
+### Publish metrics [POST]
 
 + Request (application/json)
 
