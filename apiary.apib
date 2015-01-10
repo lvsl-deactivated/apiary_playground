@@ -1,6 +1,6 @@
 FORMAT: 1A
 
-# Metrics API version 1.
+# Metrics API *Version 1*
 
 Sample API to explore functionality of *Apiary* and *API Blueprints*.
 
@@ -18,9 +18,9 @@ Sample API to explore functionality of *Apiary* and *API Blueprints*.
 These API calls operate directly on metrics.
 Full `MetricID` must be specified in every call.
 
-## /metrics
+## /v1/metrics
 
-### Publish metrics [POST]
+### [POST]
 
 + Request (application/json)
 
@@ -34,4 +34,7 @@ Full `MetricID` must be specified in every call.
 
 + Response 200 (application/json)
     
-    {"status": "OK", "metrics_created": false}
+    {
+        "status": "OK",
+        "metrics_created": false
+    }
