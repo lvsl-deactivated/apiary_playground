@@ -21,19 +21,21 @@ Full `MetricID` must be specified in every call.
 ## Publish Metrics [/metrics]
 
 ### Publish metrics [POST]
-+ Parameters Input Parameters
-    - timestamp (optional, number) UNIX Timestamp of measurement
+
+    + Parameters Input Parameters
+        - timestamp (optional, number) UNIX Timestamp of measurement
     
-        If not specified current time on the server will be used.
-        **NOTE:** timestamp will be rounded to previous minute.
+            If not specified current time on the server will be used.
+            **NOTE:** timestamp will be rounded to previous minute.
+
+        - value (required, double) Value of measurement
     
-    - value (required, double) Value of measurement
+            IEEE754 format, NaNs, not allowed.
+
+        - id (required, string) MetricID to which publish the measurement.
     
-        IEEE754 format, NaNs, not allowed.
-    
-    - id (required, string) MetricID to which publish the measurement.
-    
-        if MetricID does not exists on the system, it will be created.
+            if MetricID does not exists on the system, it will be created.
+
 
 + Request (application/json)
 
