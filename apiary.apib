@@ -17,12 +17,40 @@ This section describe common concepts used in all API calls.
 * `MetricName` – name of the sensor that emits value
 * `[NameN:ValueN]` – tag, used to de-dupe metric
 
-# GROUP Storing & Retrieval of Datapoints
+# Group Models
+This section describe data models used in API in the next section.
+
+## Datapoint [/v1/datapoint]
+[Datapoint][] represents value of a metric in a specified moment of time.
+
+### Model (application/json)
+
+    ```js
+        {
+            "timestamp": 1234567890,
+            "value": 3.1415,
+            "id": "Namespace.Name.[foo:bar]",
+        }
+    ```
+## Metric [/v1/metric]
+### Model (application/json)
+
+    ```js
+        {
+            "namespace": "Namespace",
+            "name": "Name",
+            "tags": {
+                "tag1": "value1"
+            }
+        }
+    ```
+
+# Group Storing & Retrieval of Datapoints
 
 These API calls work with datapoints.
 Full `MetricID` must be specified in every call.
 
-## Datapoints [/v1/datapoints]
+## Datapoints API [/v1/datapoints]
 
 ### Publish Datapoints [POST]
 Publish datapoints.
