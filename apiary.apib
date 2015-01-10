@@ -1,11 +1,15 @@
 FORMAT: 1A
 
-# Metrics API *Version 1*
+# Metrics API (Version 1)
 
-Sample API to explore functionality of *Apiary* and *API Blueprints*.
+Sample API to explore functionality of *Apiary* and *API Blueprints Spec*.
 
-## MetricID Structure
-`MetricID` – fully qualfied metric name, with all its dimensions, has the following format:
+## Common Definitions
+
+This section describe common concepts used in all API calls.
+
+### MetricID Structure
+`MetricID` – fully qualfied metric name, with all its tags, has the following format:
 
 `Namespace`.`MetricName`.`[Name1:Value1]`.`[Name2:Value2]`. *...* .`[NameN:ValueN]` where,
 
@@ -13,14 +17,13 @@ Sample API to explore functionality of *Apiary* and *API Blueprints*.
 * `MetricName` – name of the sensor that emits value
 * `[NameN:ValueN]` – tag, used to de-dupe metric
 
-# Group  Publishing & Retrieval of Metrics
-
+# Group Publishing & Retrieval of Metrics
 These API calls operate directly on metrics.
 Full `MetricID` must be specified in every call.
 
 ## /v1/metrics
 
-### [POST]
+### Publish Metrics [POST]
 
 + Request (application/json)
 
@@ -37,4 +40,18 @@ Full `MetricID` must be specified in every call.
     {
         "status": "OK",
         "metrics_created": false
+    }
+
+### Get Metrics [POST]
+
++ Request (application/json)
+
+    [
+        "mid1"
+    ]
+    
++ Response 200 (application/json)
+
+    {
+        "mid1": { ... }
     }
