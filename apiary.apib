@@ -1,6 +1,8 @@
 FORMAT: 1A
 
-# Metrics API v1
+# Metrics API. Every group below describe specific version of API.
+
+# Group Metrics API v1
 Sample API to explore functionality of *Apiary* and *API Blueprints*.
 
 ## MetricID Structure
@@ -13,12 +15,10 @@ where,
 * `Namespace` – prefix used to partition metrics space
 * `MetricName` – name of the sensor that emits value
 * `[NameN:ValueN]` – tag, used to de-dupe metric
-
-# Group Publishing & Retriveving Metrics
 These API calls operate directly on metrics.
 Full `MetricID` must be specified in every call.
 
-## Metrics [/metrics]
+## /metrics
 
 ### Publish metrics [POST]
 
