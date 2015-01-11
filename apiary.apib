@@ -59,8 +59,12 @@ Full `MetricID` must be specified in every call.
     + Schema
     
             {
+                "$schema": "http://json-schema.org/draft-04/schema#",
                 "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
                 "items": {
+                    "type": "object",
                     "properties": {
                         "timestamp": {
                             "type": ["date-time", "null"],
